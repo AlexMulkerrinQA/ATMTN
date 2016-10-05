@@ -34,10 +34,10 @@ Vagrant.configure("2") do |config|
 		secretagent360noscope.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.29"
 		# agent2.vm.provision :shell, path: "bootstrap_minion.sh"
 		secretagent360noscope.vm.provider :virtualbox do |agentVM|
-			agentVM.gui = false
-			agentVM.name = "minion2"
-			agentVM.memory = 4096
-			agentVM.cpus = 2
+			 agentVM.gui = false
+			 agentVM.name = "minion2"
+			 agentVM.memory = 4096
+			 agentVM.cpus = 2
 		end
 	end
 	
