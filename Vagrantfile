@@ -15,6 +15,19 @@ Vagrant.configure("2") do |config|
 		end
 	end
 	
+	config.vm.define "agent1" do |agent1|
+		agent1.vm.hostname = "agent1.qac.local"
+		agent1.vm.box = "chad-thompson/ubuntu-trusty64-gui"
+		agent1.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.24"
+		#agent1.vm.provision :shell, path: "bootstrap_agent1.sh"
+		agent1.vm.provider :virtualbox do |agentVM|
+			agentVM.gui = false
+			agentVM.name = "agent1"
+			agentVM.memory = 4096
+			agentVM.cpus = 2
+		end
+	end
+	
 	config.vm.define "agent2" do |agent2|
 		 agent.vm.hostname = "agent2.qac.local"
 		 agent.vm.box = "chad-thompson/ubuntu-trusty64-gui"
