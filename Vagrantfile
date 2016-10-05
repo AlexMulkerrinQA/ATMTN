@@ -48,7 +48,7 @@ Vagrant.configure("2") do |config|
 		# agent2.vm.provision :shell, path: "bootstrap_minion.sh"
 		secretagent360noscope.vm.provider :virtualbox do |agentVM|
 			 agentVM.gui = false
-			 agentVM.name = "minion2"
+			 agentVM.name = "secretagent360noscope"
 			 agentVM.memory = 4096
 			 agentVM.cpus = 2
 		end
