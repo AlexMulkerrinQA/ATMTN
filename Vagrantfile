@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
 
 	
 	#dharam agent
-	config.vm.define "agent" do |agent|
+	config.vm.define "agent1" do |agent1|
 		agent.vm.hostname = "agent1.qac.local"
 		agent.vm.box = "chad-thompson/ubuntu-trusty64-gui"
 		agent.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.24"
