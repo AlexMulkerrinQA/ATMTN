@@ -16,7 +16,23 @@ Vagrant.configure("2") do |config|
 		end
 	end
 	
+<<<<<<< HEAD
 	#will agent
+=======
+	config.vm.define "agent1" do |agent1|
+		agent1.vm.hostname = "agent1.qac.local"
+		agent1.vm.box = "chad-thompson/ubuntu-trusty64-gui"
+		agent1.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.24"
+		#agent1.vm.provision :shell, path: "bootstrap_agent1.sh"
+		agent1.vm.provider :virtualbox do |agentVM|
+			agentVM.gui = false
+			agentVM.name = "agent1"
+			agentVM.memory = 4096
+			agentVM.cpus = 2
+		end
+	end
+	
+>>>>>>> origin/master
 	config.vm.define "agent2" do |agent2|
 		 agent.vm.hostname = "agent2.qac.local"
 		 agent.vm.box = "chad-thompson/ubuntu-trusty64-gui"
@@ -44,6 +60,7 @@ Vagrant.configure("2") do |config|
 		end
 	end
 	
+<<<<<<< HEAD
 	#alastair agent
 	config.vm.define "agent2" do |agent2|
 		 agent.vm.hostname = "agent2.qac.local"
@@ -51,6 +68,15 @@ Vagrant.configure("2") do |config|
 		 agent.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.31"
 		 agent.vm.provision :shell, path: "bootstrap_minion.sh"
 		 agent.vm.provider :virtualbox do |agentVM|
+=======
+	
+	#config.vm.define "agent2" do |agent2|
+		 #agent.vm.hostname = "agent2.qac.local"
+		 #agent.vm.box = "chad-thompson/ubuntu-trusty64-gui"
+		 #agent.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.31"
+		# agent.vm.provision :shell, path: "bootstrap_minion.sh"
+		 #agent.vm.provider :virtualbox do |agentVM|
+>>>>>>> origin/master
 			 #agentVM.gui = false
 			 #agentVM.name = "agent007"
 			 #agentVM.memory = 4096
@@ -58,8 +84,13 @@ Vagrant.configure("2") do |config|
 		 end
 	end
 
+<<<<<<< HEAD
 	#dharam agent
 	config.vm.define "agent2" do |agent2|
+=======
+
+	#config.vm.define "agent2" do |agent2|
+>>>>>>> origin/master
 		# agent.vm.hostname = "agent2.qac.local"
 		# agent.vm.box = "chad-thompson/ubuntu-trusty64-gui"
 		 #agent.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.31"
