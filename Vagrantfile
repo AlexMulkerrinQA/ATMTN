@@ -15,18 +15,18 @@ Vagrant.configure("2") do |config|
 		end
 	end
 	
-	# config.vm.define "minion1" do |agent|
-		# agent.vm.hostname = "alex.minion1.qac.local"
-		# agent.vm.box = "chad-thompson/ubuntu-trusty64-gui"
-		# agent.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.22"
+	 config.vm.define "agent2" do |agent|
+		 agent.vm.hostname = "agent2.qac.local"
+		 agent.vm.box = "chad-thompson/ubuntu-trusty64-gui"
+		 agent.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.31"
 		# agent.vm.provision :shell, path: "bootstrap_minion.sh"
-		# agent.vm.provider :virtualbox do |agentVM|
-			# agentVM.gui = false
-			# agentVM.name = "minion1"
-			# agentVM.memory = 4096
-			# agentVM.cpus = 2
-		# end
-	# end
+		 agent.vm.provider :virtualbox do |agentVM|
+			 agentVM.gui = false
+			 agentVM.name = "agent2"
+			 agentVM.memory = 4096
+			 agentVM.cpus = 2
+		 end
+	 end
 	
 	# config.vm.define "minion2" do |agent2|
 		# agent2.vm.hostname = "alex.minion2.qac.local"
