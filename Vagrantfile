@@ -55,7 +55,7 @@ Vagrant.configure("2") do |config|
 	end
 	
 	
-	config.vm.define "agent2" do |agent2|
+	#config.vm.define "agent2" do |agent2|
 		 #agent.vm.hostname = "agent2.qac.local"
 		 #agent.vm.box = "chad-thompson/ubuntu-trusty64-gui"
 		 #agent.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.31"
@@ -69,7 +69,7 @@ Vagrant.configure("2") do |config|
 	end
 
 
-	config.vm.define "agent2" do |agent2|
+	#config.vm.define "agent2" do |agent2|
 		# agent.vm.hostname = "agent2.qac.local"
 		# agent.vm.box = "chad-thompson/ubuntu-trusty64-gui"
 		 #agent.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.31"
