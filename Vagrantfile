@@ -65,8 +65,8 @@ Vagrant.configure("2") do |config|
 			 #agentVM.name = "agent2"
 			 #agentVM.memory = 4096
 			 #agentVM.cpus = 2
-		 end
-	end
+		 #end
+	#end
 
 
 	#config.vm.define "agent2" do |agent2|
@@ -79,6 +79,6 @@ Vagrant.configure("2") do |config|
 			 #agentVM.name = "agent2"
 			 #agentVM.memory = 4096
 			 #agentVM.cpus = 2
-		 end
-	end
+		 #end
+	#end
 end
