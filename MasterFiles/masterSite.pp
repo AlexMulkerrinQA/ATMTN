@@ -1,7 +1,7 @@
 node agent1 {
 	include jira
 	include nexus
-	notify {'setup agent 1':}
+	notify {'setup agent1':}
 }
 
 node default {
