@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
 	config.vm.boot_timeout = 400
-	config.vm.synced_folder "modules", "/usr/share/puppet/modules"
+	config.vm.synced_folder "Modules", "/usr/share/puppet/modules"
 	
 	#alex agent
 	config.vm.define "swarmlord" do |master|
