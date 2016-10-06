@@ -6,6 +6,6 @@ Group members:
 Alex
 Alistair
 Tim
-Gharam
+Dharam
 Will
 
