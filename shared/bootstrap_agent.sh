@@ -12,8 +12,8 @@ sudo apt-get install -y puppet
 sudo apt-get update -y
 sudo apt-get install -y puppet 
 
-name = facter fqdn
-ipaddress = facter ipaddress_eth1
+name =$(facter fqdn)
+ipaddress = $(facter ipaddress_eth1)
 
 # add ip to hosts file
 sudo echo "192.168.1.25 swarmlord.qac.local puppetmaster" >> /etc/hosts
