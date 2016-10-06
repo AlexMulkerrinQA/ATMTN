@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
 		master.vm.hostname = "swarmlord.qac.local"
 		master.vm.box = "chad-thompson/ubuntu-trusty64-gui"
 		master.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.25"
-		# master.vm.provision :shell, path: "bootstrap_master.sh"
+		master.vm.provision :shell, path: "bootstrap_master.sh"
 		master.vm.provider :virtualbox do |masterVM|
 			masterVM.gui = false
 			masterVM.name = "swarmlord"
@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
 		agent.vm.hostname = "agent1.qac.local"
 		agent.vm.box = "chad-thompson/ubuntu-trusty64-gui"
 		agent.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.24"
-		#agent.vm.provision :shell, path: "bootstrap_agent.sh"
+		agent.vm.provision :shell, path: "bootstrap_agent.sh"
 		agent.vm.provider :virtualbox do |agentVM|
 			agentVM.gui = false
 			agentVM.name = "agent1"

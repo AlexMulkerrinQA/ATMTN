@@ -1,15 +1,7 @@
 #!/bin/bash
 
-
 echo "Minion ready to serve!"
-# get useful packages
-sudo apt-get install -y {vim,tree}
 
-# DANGER disable firewall
-sudo ufw disable
-
-# get agent puppet package
-sudo apt-get install -y puppet 
 sudo apt-get update -y
 sudo apt-get install -y puppet 
 
@@ -22,4 +14,5 @@ sudo sed -i "3i$(facter ipaddress_eth1) $(facter fqdn) puppet" /etc/hosts
 sudo sed -i "2iserver=192.168.1.25" /etc/puppet/puppet.conf
 
 # test the puppet server
+
 sudo puppet agent -t --server=swarmlord.qac.local
