@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+Something = "String"
+echo $Something
+
 echo "Minion ready to serve!"
 # get useful packages
 sudo apt-get install -y {vim,tree}
