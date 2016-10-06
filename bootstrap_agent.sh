@@ -15,12 +15,12 @@ sudo apt-get install -y puppet
 
 
 # add ip to hosts file
-sudo echo "192.168.1.25 swarmlord.qac.local puppetmaster" >> /etc/hosts
-sudo echo "127.0.0.1 $(facter fqdn) puppet" >> /etc/hosts
-sudo echo "$(facter ipaddress_eth1) $(facter fqdn) puppet" >> /etc/hosts
+sudo sed -i "1i/192.168.1.25 swarmlord.qac.local puppetmaster" >> /etc/hosts
+sudo sed -i "2i/127.0.0.1 $(facter fqdn) puppet" >> /etc/hosts
+sudo sed -i "3i/$(facter ipaddress_eth1) $(facter fqdn) puppet" >> /etc/hosts
 
 # add server to puppet configuration
-sudo echo "server=192.168.1.25" >> /etc/puppet/puppet.conf
+sudo sed -i "2i/server=192.168.1.25" >> /etc/puppet/puppet.conf
 
 # test the puppet server
 sudo puppet agent -t --server=swarmlord.qac.local
