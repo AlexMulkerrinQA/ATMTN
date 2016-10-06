@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
 	config.vm.synced_folder "shared", "/tmp/shared"
 	
 	#alex agent
-	config.vm.define "master" do |master|
+	config.vm.define "swarmlord" do |master|
 		master.vm.hostname = "swarmlord.qac.local"
 		master.vm.box = "chad-thompson/ubuntu-trusty64-gui"
 		master.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.25"
@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
 
 	
 	#dharam agent
-	config.vm.define "agent" do |agent|
+	config.vm.define "agent1" do |agent|
 		agent.vm.hostname = "agent1.qac.local"
 		agent.vm.box = "chad-thompson/ubuntu-trusty64-gui"
 		agent.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.24"
@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
 	end
 	
 	# will's agent
-	config.vm.define "agent" do |agent|
+	config.vm.define "agent2" do |agent|
 		 agent.vm.hostname = "agent2.qac.local"
 		 agent.vm.box = "chad-thompson/ubuntu-trusty64-gui"
 		 agent.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.31"
@@ -46,7 +46,7 @@ Vagrant.configure("2") do |config|
 	end
 	
 	#tim agent
-	config.vm.define "agent" do |agent|
+	config.vm.define "secretagent360noscope" do |agent|
 		agent.vm.hostname = "secretagent360noscope.qac.local"
 		agent.vm.box = "chad-thompson/ubuntu-trusty64-gui"
 		agent.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.29"
@@ -61,7 +61,7 @@ Vagrant.configure("2") do |config|
 	
 
 	#alastair agent
-	config.vm.define "agent" do |agent|
+	config.vm.define "agent007" do |agent|
 		 agent.vm.hostname = "agent007.qac.local"
 		 agent.vm.box = "chad-thompson/ubuntu-trusty64-gui"
 		 agent.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.30"
