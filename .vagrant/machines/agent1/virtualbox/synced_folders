@@ -1,1 +1,0 @@
-{"virtualbox":{"/tmp/shared":{"guestpath":"/tmp/shared","hostpath":"C:/Users/Administrator/Documents/ATMTN_Project/ATMTN/shared","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/Administrator/Documents/ATMTN_Project/ATMTN","disabled":false,"__vagrantfile":true}}}
