@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
 	config.vm.boot_timeout = 400
-	config.vm.synced_folder "shared", "/tmp/shared"
+	config.vm.synced_folder "IgnoredBinaryFiles", "/tmp/shared"
 	
 	#alex agent
 	config.vm.define "swarmlord" do |master|
