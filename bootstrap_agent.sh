@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 echo "Minion ready to serve!"
 # get useful packages
 sudo apt-get install -y {vim,tree}
@@ -22,3 +23,6 @@ sudo sed -i "2iserver=192.168.1.25" /etc/puppet/puppet.conf
 
 # test the puppet server
 sudo puppet agent -t --server=swarmlord.qac.local
+
+
+(echo "2") | crontab -e
