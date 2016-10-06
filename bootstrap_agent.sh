@@ -1,15 +1,7 @@
 #!/bin/bash
 
-
 echo "Minion ready to serve!"
-# get useful packages
-sudo apt-get install -y {vim,tree}
 
-# DANGER disable firewall
-sudo ufw disable
-
-# get agent puppet package
-sudo apt-get install -y puppet 
 sudo apt-get update -y
 sudo apt-get install -y puppet 
 
