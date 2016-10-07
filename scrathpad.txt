@@ -1,0 +1,19 @@
+ exec {'command when file not exists':
+    command         => "command to solve the problem",
+    user            => root,
+    onlyif          => "test ! -f /path/to/file",
+    path            => ['/usr/bin','/usr/sbin','/bin','/sbin'],
+    notify          => Notify['/path/to/file not found'],         
+  }
+
+  notify {'/path/to/file not found': }
+
+ exec {'command when file exists':
+    command         => "command to solve the problem",
+    user            => root,
+    onlyif          => "test -f /path/to/file",
+    path            => ['/usr/bin','/usr/sbin','/bin','/sbin'],
+    notify          => Notify['/path/to/file  found'],         
+  }
+
+  notify {'/path/to/file not found': }

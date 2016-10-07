@@ -1,7 +1,15 @@
-node agent1 {
+node agent2 {
 	include jira
+	include git
+	include java
+	include maven
+	include bamboo
 	include nexus
-	notify {'setup agent1':}
+}
+
+node agent1 {
+	include java
+	include maven
 }
 
 node default {
