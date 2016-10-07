@@ -12,15 +12,15 @@ class jira {
 		before => Exec['installJira'],
 	}
 	
-	exec { 'installJira':
-		onlyif => 'test ! -d /opt/atlassian',
-		provider => shell,
-		command => 'sudo /opt/jira.bin -q -varfile /opt/response.varfile',
-	}
+	 exec { 'installJira':
+		 onlyif => 'test ! -d /opt/atlassian',
+		 provider => shell,
+		 command => 'sudo /opt/jira.bin -q -varfile /opt/response.varfile',
+	 }
 	
-	exec { 'jiraInstalled':
-		onlyif => 'test -d /opt/atlassian',
-		provider => shell,
-		command => 'sudo echo "Jira is installed" | wall',
-	}
+	# exec { 'jiraInstalled':
+		# onlyif => 'test -d /opt/atlassian',
+		# provider => shell,
+		# command => 'sudo echo "Jira is installed" | wall',
+	# }
 }
