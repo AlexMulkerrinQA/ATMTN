@@ -8,6 +8,6 @@ class jira {
 	
 	exec { 'installJira':
 		provider => shell,
-		command => 'pwd',
+		command => 'echo "test" >> ~/test.txt',
 	}
 }
