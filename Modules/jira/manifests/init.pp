@@ -2,26 +2,25 @@ class jira {
 
 	file { '/opt/jira.bin':
 		ensure => present,
-		source => '/vagrant/IgnoredBinaryFiles/jira.bin',	
-		#notify => Exec['installJira'],
-		#notify => Exec['testIfInstalled'],
+		source => '/vagrant/IgnoredBinaryFiles/jira.bin',
+		before => Exec['installJira'],
 	}
 	
-	exec {'command when file missing':
-		onlyif 	=> 'test ! -d /opt/test',
+	file { '/opt/response.varfile':
+		ensure => present,
+		source => '/vagrant/Modules/jira/files/response.varfile',
+		before => Exec['installJira'],
+	}
+	
+	exec { 'installJira':
+		onlyif => 'test ! -d /opt/atlassian',
 		provider => shell,
-		command => 'mkdir /opt/test',
+		command => 'sudo /opt/jira.bin -q -varfile /opt/response.varfile',
 	}
 	
-	exec {'command when file exists':
-		onlyif 	=> 'test -d /opt/test',
-		user => root,
+	exec { 'jiraInstalled':
+		onlyif => 'test -d /opt/atlassian',
 		provider => shell,
-		command => 'echo "hello" > /opt/test/thing.txt',
+		command => 'sudo echo "Jira is installed" | wall',
 	}
-	
-	##exec { 'installJira':
-	#	provider => shell,
-	#	command => 'echo "test" >> ~/test.txt',
-	#}
 }
