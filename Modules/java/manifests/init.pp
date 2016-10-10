@@ -15,7 +15,7 @@ class java {
 	}
 	
 	exec {'updateAltJava':
-		refreshonly => true,
+		#refreshonly => true,
 		provider => shell,
 		cwd => '/opt/',
 		command => 'sudo update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_45/bin/java 100; sudo update-alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_45/bin/javac 100',
