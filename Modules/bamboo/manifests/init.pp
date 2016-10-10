@@ -16,14 +16,13 @@ class bamboo {
 	
 	exec { 'editHomeDirectory':
 		provider	=> shell,
-		onlyif		=> "test ! -d /opt/atlassian-bamboo-5.13.2",
 		command		=> 'sudo sed -i "1ibamboo.home=C:/Desktop" /opt/atlassian-bamboo-5.13.2/atlassian-bamboo/WEB-INF/classes/bamboo-init.properties',
 		before		=> Exec['startBamboo'],
 	}
 	
 	exec { 'startBamboo':
 		provider	=> shell,
-		onlyif		=> ["test -d /opt/jdk1.8.0_45","test ! -d /opt/atlassian-bamboo-5.13.2"],
+		onlyif		=> "test -d /opt/jdk1.8.0_45",
 		cwd			=> '/opt/atlassian-bamboo-5.13.2',
 		command		=> 'sudo bin/start-bamboo.sh'
 	}
