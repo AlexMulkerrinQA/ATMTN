@@ -21,14 +21,13 @@ class maven
 	
 	exec { 'installMaven':
 		provider	=> shell,
-		onlyif		=> ["test ! -d /opt/apache-maven-3.3.9/","test -d /opt/jdk1.8.0_45"],
+		onlyif		=> "test -d /opt/jdk1.8.0_45"
 		command		=> 'sudo update-alternatives --install /usr/bin/mvn mvn /opt/apache-maven-3.3.9/bin/mvn 100',
 		before		=> Exec['configMaven'],
 	}
 	
 	exec { 'configMaven':
 		provider	=> shell,
-		onlyif		=> ["test ! -d /opt/apache-maven-3.3.9/","test -d /opt/jdk1.8.0_45"],
 		command		=> 'sudo update-alternatives --config mvn',
 	}
 
