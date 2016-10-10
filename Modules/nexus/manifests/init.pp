@@ -1,9 +1,9 @@
 class nexus 
 {
 	exec 
-	{'install nexus':
+	{'install':
 		provider => shell,
 		command         => '/vagrant/Modules/nexus/files/nexus_installer.sh',
-		onlyif          => "test ! /opt/nexus-3.0.2-02",
+		onlyif          => "test ! -e /opt/nexus-3.0.2-02",
 	}
 }
