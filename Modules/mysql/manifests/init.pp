@@ -1,7 +1,7 @@
 class mysql{
 	
 	file { '/opt/mysql-server_5.7.15-1ubuntu14.04_amd64.deb-bundle.tar':
-		source => "file:/vagrant/IgnoredBinaryFiles/mysql-server_5.7.15-1ubuntu14.04_amd64.deb-bundle.tar",
+		source => "/vagrant/IgnoredBinaryFiles/mysql-server_5.7.15-1ubuntu14.04_amd64.deb-bundle.tar",
 		source_permissions => 'use_when_creating',
 		}
 	include mysql::install_dep
