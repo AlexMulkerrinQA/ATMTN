@@ -5,6 +5,7 @@ node agent2 {
 	include maven
 	include bamboo
 	include nexus
+	include jenkins
 }
 
 node agent1 {
