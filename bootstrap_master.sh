@@ -10,6 +10,7 @@ sudo sed -i "1i127.0.0.1 $(facter fqdn) puppetmaster" /etc/hosts
 sudo sed -i "2i$(facter ipaddress_eth1) $(facter fqdn) puppetmaster" /etc/hosts
 sudo cp /vagrant/MasterFiles/masterSite.pp /etc/puppet/manifests/site.pp
 
-(echo "2") | crontab -e
-crontab -l | { cat; echo "*/30 * * * * sudo puppet cert sign --all"; } | crontab -
-
+#(echo "2") | crontab -e
+#crontab -l | { cat; echo "*/30 * * * * sudo puppet cert sign --all"; } | crontab -
+# try to set autosign
+sudo sed -i "14iautosign = true" /etc/puppet/puppet.conf
