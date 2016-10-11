@@ -1,10 +1,18 @@
 class nexus 
 {
-	file { '/opt/nexus-3.0.2-02-unix.tar.gz':
-		ensure => present,
-		source => '/vagrant/IgnoredBinaryFiles/nexus-3.0.2-02-unix.tar.gz',
-		notify => Exec['extract tar'],
+	#exec 
+	#{'install':
+	#	provider => shell,
+	#	command         => '/vagrant/Modules/nexus/files/nexus_installer.sh',
+	#	onlyif          => "test ! -e /opt/nexus-3.0.2-02",
+	#}
+	
+	exec 
+	{'begin install':
+		provider => shell,
 		onlyif  => "test ! -e /opt/nexus-3.0.2-02",
+		command => 'sudo cp /vagrant/IgnoredBinaryFiles/nexus-3.0.2-02-unix.tar.gz /opt/nexus-3.0.2-02-unix.tar.gz',
+		notify => Exec['extract tar'],
 	}
 	
 	exec
