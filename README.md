@@ -5,7 +5,7 @@ Setting up your system so you don't have to!
 # To Run:
 
 * Ensure vagrant version is 1.8.6 and Virtual box is 5.1.2
-* download repository
+* download github repository
 * add binary files to new Directory called "IgnoredBinaryFiles"
 * open the bash command line in repository directory
 * type `vagrant up`
@@ -18,4 +18,4 @@ Setting up your system so you don't have to!
 * Alistair
 * Tim
 * Dharam
-
+* Will... rip
