@@ -88,4 +88,18 @@ Vagrant.configure("2") do |config|
 		end
 	end
 	
+	#zabbix1 agent
+	config.vm.define "zabbix2" do |agent|
+		agent.vm.hostname = "zabbix2.qac.local"
+		agent.vm.box = "chad-thompson/ubuntu-trusty64-gui"
+		agent.vm.network :public_network, :public_network => "wlan0", ip: "192.168.1.215"
+		agent.vm.provision :shell, path: "bootstrap_agent.sh"
+		agent.vm.provider :virtualbox do |agentVM|
+			agentVM.gui = false
+			agentVM.name = "zabbix2"
+			agentVM.memory = 4096
+			agentVM.cpus = 2
+		end
+	end
+	
 end
