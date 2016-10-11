@@ -1,12 +1,5 @@
 class nexus 
 {
-	#exec 
-	#{'install':
-	#	provider => shell,
-	#	command         => '/vagrant/Modules/nexus/files/nexus_installer.sh',
-	#	onlyif          => "test ! -e /opt/nexus-3.0.2-02",
-	#}
-	
 	exec 
 	{'begin install':
 		provider => shell,
@@ -31,8 +24,6 @@ class nexus
 		command => 'sudo chmod +x nexus',
 		refreshonly => true,
 		notify => Exec['run it in background'],
-		
-		
 	}
 	
 	exec
@@ -42,6 +33,7 @@ class nexus
 		command => 'sudo ./nexus start &',
 		refreshonly => true,
 	}
-	
-	
 }
+
+
+

@@ -1,5 +1,4 @@
-class maven
-	{
+class maven{
 
 	Exec {
 		path => ['/usr/bin','/bin','/usr/sbin']
@@ -30,15 +29,5 @@ class maven
 		provider	=> shell,
 		command		=> 'sudo update-alternatives --config mvn',
 	}
-
-	
-	
-
-	#exec {'maven install':
-		#provider => shell,
-		#command         => '/vagrant/Modules/maven/files/maven_installer.sh',
-		#onlyif          => "test ! -f /opt/maven.tar.gz",
-		#path            => ['/usr/bin','/usr/sbin','/bin','/sbin'],
-	#}
 }
 
