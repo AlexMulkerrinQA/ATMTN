@@ -1,11 +1,11 @@
 node agent2 {
-	#include jira
-	#include git
+	include jenkins
+	include jira
+	include git
 	include java
-	#include maven
-	#include bamboo
-	#include nexus
-	#include jenkins
+	include maven
+	include bamboo
+	include nexus	
 }
 
 node agent1 {

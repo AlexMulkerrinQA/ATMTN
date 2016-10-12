@@ -1,3 +1,5 @@
 /IgnoredBinaryFiles/*
 /.vagrant/*
 /.vagrant/machines/*
+/Puppet\ Enterprise/.vagrant/machines/*
+/Puppet\ Enterprise/puppet-enterprise-2015.2.0-ubuntu-14.04-amd64.tar.gz

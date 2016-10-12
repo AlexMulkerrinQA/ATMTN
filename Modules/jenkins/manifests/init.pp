@@ -5,20 +5,22 @@ class jenkins {
 		source => '/vagrant/IgnoredBinaryFiles/jenkins_2.1_all.deb',
 		before => Exec['installJenkins'],
 	}
+	
+	#file {'/etc/default/jenkins':
+	#	path => '/etc/default/jenkins',
+	#	source => '/vagrant/Modules/jenkins/files/jenkins',
+	#	before => Exec['installJenkins'],
+	#}
+	
 	exec {'installJenkins':
 		provider => shell,
 		command  => 'sudo dpkg -i /opt/jenkins_2.1_all.deb ;sudo apt-get -qq install -yf; echo "0"',
-		onlyif 	 => 'test ! -f /etc/default/jenkins',
-		before => File['/etc/default/jenkins'],
-	}
-	
-	file {'/etc/default/jenkins':
-		path => '/etc/default/jenkins',
-		source => '/vagrant/Modules/jenkins/files/jenkins',
+		#onlyif 	 => 'test ! -f /etc/default/jenkins',
 		notify => Service['jenkins'],
 	}
 	
 	service { 'jenkins':
+		require => Exec['installJenkins'],
 		ensure => 'running',
 		enable => true,
 	}
