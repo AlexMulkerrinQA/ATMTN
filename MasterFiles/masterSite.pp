@@ -6,7 +6,7 @@ node agent2 {
 	include maven
 	include bamboo
 	include nexus
-	#include mysql
+	include mysql
 }
 
 node agent1 {
