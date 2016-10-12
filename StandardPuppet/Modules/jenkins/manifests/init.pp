@@ -8,7 +8,7 @@ class jenkins {
 	
 	file { '/opt/openjdk-7-jre-headless_7u111-2.6.7-0ubuntu0.14.04.3_amd64.deb':
 		ensure => present,
-		source => '/vagrant/IgnoredBinaryFiles/jenkinsArchive/openjdk-7-jre-headless_7u111-2.6.7-0ubuntu0.14.04.3_amd64.deb',
+		source => '/vagrant/IgnoredBinaryFiles/openjdk-7-jre-headless_7u111-2.6.7-0ubuntu0.14.04.3_amd64.deb',
 		before => Exec['installJenkins'],
 	}
 	
