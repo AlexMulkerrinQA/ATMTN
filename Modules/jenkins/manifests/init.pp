@@ -14,13 +14,19 @@ class jenkins {
 	
 	exec {'installJenkins':
 		provider => shell,
-		command  => 'sudo dpkg -i /opt/jenkins_2.1_all.deb ;sudo apt-get -qq install -yf; echo "0"',
-		#onlyif 	 => 'test ! -f /etc/default/jenkins',
-		notify => Service['jenkins'],
+		command  => 'sudo dpkg -i /opt/jenkins_2.1_all.deb; echo 0',
+		before => Exec['installDependecies'],
+	}	
+		
+	exec {'installDependecies':
+		provider => shell,
+		command  => 'sudo apt-get -qq install -yf; echo 0',
+		onlyif 	 => 'test ! -f /etc/default/jenkins',
+		before => Service['jenkins'],
 	}
 	
 	service { 'jenkins':
-		require => Exec['installJenkins'],
+		#require => Exec['installDependecies'],
 		ensure => 'running',
 		enable => true,
 	}
