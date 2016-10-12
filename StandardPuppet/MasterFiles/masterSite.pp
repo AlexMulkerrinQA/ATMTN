@@ -7,6 +7,7 @@ node agent2 {
 	include bamboo
 	include nexus
 	include mysql
+	include zabbix
 }
 
 node agent1 {
