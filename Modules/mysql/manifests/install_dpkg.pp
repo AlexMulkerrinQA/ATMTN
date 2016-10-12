@@ -1,46 +1,41 @@
 class mysql::install_dpkg{
+$noninter="DEBIAN_FRONTEND='noninteractive'"
 
 exec { 'install_common':
-		cwd => '/opt',
 		provider => shell,
-		command => 'sudo dpkg -i mysql-common_5.7.15-1ubuntu14.04_amd64.deb',
-		}
+		command => 'sudo dpkg -i /opt/mysql-common_5.7.15-1ubuntu14.04_amd64.deb',
+		refreshonly => true,
+		} ~>
 exec { 'install_comm_client':
-		cwd => '/opt',
 		provider => shell,
-		command => 'sudo dpkg -i mysql-community-client_5.7.15-1ubuntu14.04_amd64.deb',
-		require => Exec['install_common'],
-		}
+		command => 'sudo dpkg -i /opt/mysql-community-client_5.7.15-1ubuntu14.04_amd64.deb',
+		refreshonly => true,
+		} ~>
 exec { 'install_client':
-		cwd => '/opt',
 		provider => shell,
-		command => 'sudo dpkg -i mysql-client_5.7.15-1ubuntu14.04_amd64.deb',
-		require => Exec['install_comm_client'],
-		}
+		command => 'sudo dpkg -i /opt/mysql-client_5.7.15-1ubuntu14.04_amd64.deb',
+		refreshonly => true,
+		} ~>
 exec { 'pre_comm_server':
-		cwd => '/opt',
-		provider => shell,		
-		command => "/vagrant/Modules/mysql/files/preconfigure.sh",
-		require => Exec['install_client'],		
-		}
+		provider => shell,
+		command => "sudo ${noninter} dpkg-preconfigure /opt/mysql-community-server_5.7.15-1ubuntu14.04_amd64.deb",
+		refreshonly => true,
+		} ~>
 exec { 'install_comm_server':
-		cwd => '/opt',
 		provider => shell,
-		command => 'sudo dpkg -i mysql-community-server_5.7.15-1ubuntu14.04_amd64.deb',
-		require => Exec['pre_comm_server'],
+		command => 'sudo dpkg -i /opt/mysql-community-server_5.7.15-1ubuntu14.04_amd64.deb',
+		refreshonly => true,
+		} ~>
+exec {'install_server':		
+		provider => shell,
+		command => 'sudo dpkg -i /opt/mysql-server_5.7.15-1ubuntu14.04_amd64.deb',
+		refreshonly => true,
+		} ~>
+exec {'install_lib':		
+		provider => shell,
+		command => 'sudo dpkg -i /opt/libmysqlclient20_5.7.15-1ubuntu14.04_amd64.deb',
+		refreshonly => true,
 		}
-exec {'install_server':
-		cwd => '/opt',
-		provider => shell,
-		command => 'sudo dpkg -i mysql-server_5.7.15-1ubuntu14.04_amd64.deb',
-		require => Exec['install_comm_server'],
-		}
-exec {'install_lib':
-		cwd => '/opt',
-		provider => shell,
-		command => 'sudo dpkg -i libmysqlclient20_5.7.15-1ubuntu14.04_amd64.deb',
-		require => Exec['install_server'],
-		}	
 }
 
 

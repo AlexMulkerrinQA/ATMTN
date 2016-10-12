@@ -1,21 +1,23 @@
 class mysql::install_dep{
 
-	exec { 'install_dependencies':
-		cwd => '/opt',
-		provider => shell,
-		command => 'sudo apt-get -fy install',
-	}	
+	#exec { 'install_dependencies':
+	#	cwd => '/opt',
+	#	provider => shell,
+	#	command => 'sudo apt-get -fy install',
+	#	notify => [Exec['install_libaio1'],Exec['install_libmecab2']],
+	#	refreshonly => true,
+	#}	
 	exec { 'install_libaio1':
-		cwd => '/opt',
 		provider => shell,
 		command => 'sudo apt-get install libaio1',
-		require => Exec['install_dependencies'],
+		refreshonly => true,
+		
 	}
 	exec { 'install_libmecab2':
-		cwd => '/opt',
 		provider => shell,
 		command => 'sudo apt-get install libmecab2',
-		require => Exec['install_dependencies'],
+		refreshonly => true,
+		
 	}
 	
 }

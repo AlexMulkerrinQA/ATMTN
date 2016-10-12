@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-	config.vm.boot_timeout = 400
+	config.vm.boot_timeout = 600
 	config.vm.synced_folder "Modules", "/usr/share/puppet/modules"
 	
 	#alex agent
