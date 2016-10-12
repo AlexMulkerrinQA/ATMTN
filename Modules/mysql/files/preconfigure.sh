@@ -1,1 +1,0 @@
-#sudo DEBIAN_FRONTEND="noninteractive" dpkg-preconfigure mysql-community-server_5.7.15-1ubuntu14.04_amd64.deb
