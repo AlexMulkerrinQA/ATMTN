@@ -1,5 +1,4 @@
 class java {
-
 	file { '/opt/java.tar.gz':
 		ensure => present,
 		source => '/vagrant/IgnoredBinaryFiles/java.tar.gz',
@@ -18,6 +17,8 @@ class java {
 		#refreshonly => true,
 		provider => shell,
 		cwd => '/opt/',
-		command => 'sudo update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_45/bin/java 2069; sudo update-alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_45/bin/javac 2069',
+		command => 'sudo update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_45/bin/java 2069;sudo update-alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_45/bin/javac 2069',
 	}
 }
+
+

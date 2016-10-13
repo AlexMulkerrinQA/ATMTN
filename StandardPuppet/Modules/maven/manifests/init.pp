@@ -1,9 +1,4 @@
 class maven{
-
-	Exec {
-		path => ['/usr/bin','/bin','/usr/sbin']
-	}
-	
 	file { '/opt/maven.tar.gz':
 		ensure	=> present,
 		source	=> '/vagrant/IgnoredBinaryFiles/maven.tar.gz',
