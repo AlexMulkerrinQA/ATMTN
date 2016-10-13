@@ -16,6 +16,18 @@ Setting up your system so you don't have to!
 * Open the bash command line in StandardPuppet directory within the repository
 * Type 'vagrant up swarmlord agent2' (master and single agent)
 
+# To check everything is installed:
+
+* jenkins goto 192.168.1.31.8080
+* jira goto 192.168.1.31.8480
+* git check `git --version`
+* java check `java -version`
+* maven check `mvn --version`
+* bamboo goto 192.168.1.31.8085
+* nexus goto 192.168.1.31.8081
+* mysql check `mysql --version`
+* zabbix `zabbix_agentd -V`
+
 # Group members:
 
 * Alex
