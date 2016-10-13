@@ -38,7 +38,7 @@ exec {'install_lib':
 		} ~>
 exec {'install_client_dev':
 		provider => shell,
-		command => 'sudo dpkg -i /opt/libmysqlclient-dev_5.7.15-1ubuntu14.04_amd64',
+		command => 'sudo dpkg -i /opt/libmysqlclient-dev_5.7.15-1ubuntu14.04_amd64.deb',
 		refreshonly => true,
 		} ~>
 exec {'install_dev':
