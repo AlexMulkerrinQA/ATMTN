@@ -30,8 +30,8 @@ Setting up your system so you don't have to!
 
 # Group members:
 
-* Alex
-* Alistair
-* Tim
-* Dharam
+* Alex - Jenkins, Jira, Puppet Enterprise, M-Collective
+* Alistair - Java, Nexus, Maven
+* Tim - MySql, Git, Zabbix 
+* Dharam - Bamboo, Zabbix
 * Will... rip
